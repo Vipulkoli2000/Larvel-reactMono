@@ -48,9 +48,7 @@ const App = () => {
             </div>
           </CardContent>
           <CardFooter>
-            <Button onClick={toggleAuthMode} className="underline">
-              Login
-            </Button>
+            <Button>Login</Button>
           </CardFooter>
         </Card>
       </div>
