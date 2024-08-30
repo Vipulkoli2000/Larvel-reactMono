@@ -1,0 +1,33 @@
+{
+  "name": "combine",
+  "private": true,
+  "workspaces": [
+    "Frontend"
+  ],
+  "scripts": {
+    "dev": "npm run dev:api & npm run dev:ui",
+    "dev:ui": "cd Frontend && npm run dev",
+    "dev:api": "cd Backend && php artisan serve",
+    "build": "npm run build:ui && npm run build:api",
+    "build:ui": "cd Frontend && npm run build",
+    "build:api": "cd Backend && npm run production"
+  },
+  "devDependencies": {
+    "axios": "^1.7.5",
+    "laravel-vite-plugin": "^1.0",
+    "@eslint/js": "^9.9.0",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^4.3.1",
+    "eslint": "^9.9.0",
+    "eslint-plugin-react": "^7.35.0",
+    "eslint-plugin-react-hooks": "^5.1.0-rc.0",
+    "eslint-plugin-react-refresh": "^0.4.9",
+    "globals": "^15.9.0",
+    "vite": "^5.4.1"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  }
+}
