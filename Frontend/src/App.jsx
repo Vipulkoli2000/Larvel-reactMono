@@ -1,6 +1,6 @@
-import { useState } from "react";
+import React, { useState } from "react";
+
 import "./App.css";
-import React from "react";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -9,60 +9,53 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "./components/ui/card";
-import { Input } from "./components/ui/input";
+} from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
+// import Background from "./components/images/Doitbackground.svg";+
 
-function App() {
-  const [count, setCount] = useState(0);
-
+const App = () => {
   return (
-    <>
-      <Card className="w-[350px]">
-        <CardHeader>
-          <CardTitle>Create project</CardTitle>
-          <CardDescription>
-            Deploy your new project in one-click.
-          </CardDescription>
-        </CardHeader>
-        <CardContent>
-          <form>
-            <div className="grid w-full items-center gap-4">
-              <div className="flex flex-col space-y-1.5">
-                <Label htmlFor="name">Name</Label>
-                <Input id="name" placeholder="Name of your project" />
-              </div>
-              <div className="flex flex-col space-y-1.5">
-                <Label htmlFor="framework">Framework</Label>
-                <Select>
-                  <SelectTrigger id="framework">
-                    <SelectValue placeholder="Select" />
-                  </SelectTrigger>
-                  <SelectContent position="popper">
-                    <SelectItem value="next">Next.js</SelectItem>
-                    <SelectItem value="sveltekit">SvelteKit</SelectItem>
-                    <SelectItem value="astro">Astro</SelectItem>
-                    <SelectItem value="nuxt">Nuxt.js</SelectItem>
-                  </SelectContent>
-                </Select>
-              </div>
+    <div
+      className="flex items-center justify-center min-h-screen bg-[]"
+      // style={{
+      //   backgroundImage: `url(${Background})`,
+      //   backgroundSize: "cover",
+      //   backgroundRepeat: "no-repeat",
+      // }}
+    >
+      <div className="flex flex-col items-center justify-center h-screen">
+        <Card className="w-full max-w-sm">
+          <CardHeader>
+            <CardTitle className="text-2xl">Login</CardTitle>
+            <CardDescription>
+              Enter your email below to login to your account.
+            </CardDescription>
+          </CardHeader>
+          <CardContent className="grid gap-4">
+            <div className="grid gap-2">
+              <Label htmlFor="email">Email</Label>
+              <Input
+                id="email"
+                type="email"
+                placeholder="m@example.com"
+                required
+              />
             </div>
-          </form>
-        </CardContent>
-        <CardFooter className="flex justify-between">
-          <Button variant="outline">Cancel</Button>
-          <Button>Deploy</Button>
-        </CardFooter>
-      </Card>
-    </>
+            <div className="grid gap-2">
+              <Label htmlFor="password">Password</Label>
+              <Input id="password" type="password" required />
+            </div>
+          </CardContent>
+          <CardFooter>
+            <Button onClick={toggleAuthMode} className="underline">
+              Login
+            </Button>
+          </CardFooter>
+        </Card>
+      </div>
+    </div>
   );
-}
+};
 
 export default App;
